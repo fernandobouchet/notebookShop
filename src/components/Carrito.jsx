@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import { Modal, Button, Row, Col } from 'react-bootstrap';
 
 const Carrito = (props) => {
@@ -15,17 +16,30 @@ const Carrito = (props) => {
           <Modal.Title id="contained-modal-title-vcenter">Carrito</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <h4>Productos</h4>
-          <Row xs={1} className="g-4">
-            {carrito.map((producto) => (
-              <Col key={producto.id}>
+          <Row>
+            <Col xs={1}>Cant.</Col>
+            <Col xs={11}>Producto</Col>
+          </Row>
+          {carrito.map((producto) => (
+            <Row key={producto.id}>
+              <Col xs={1}>
                 <h6>{producto.cantidad}</h6>
-                <img src={producto.imagen} alt={producto.titulo}></img>
+              </Col>
+              <Col xs={2}>
+                <img
+                  width="50px"
+                  src={producto.imagen}
+                  alt={producto.titulo}
+                ></img>
+              </Col>
+              <Col xs={7}>
                 <h6>{producto.titulo}</h6>
+              </Col>
+              <Col xs={2}>
                 <h6>{producto.precio}</h6>
               </Col>
-            ))}
-          </Row>
+            </Row>
+          ))}
         </Modal.Body>
         <Modal.Footer>
           <Button onClick={props.onHide}>Close</Button>

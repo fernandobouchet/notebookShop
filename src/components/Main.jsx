@@ -5,7 +5,7 @@ import { Row } from 'react-bootstrap';
 const Main = ({ carrito, modificarCarrito }) => {
   return (
     <>
-      <Row xs={1} md={2} className="g-4">
+      <Row xs={2} md={4} className="g-4">
         {articulos.map((articulo) => (
           <Producto
             key={articulo.id}
