@@ -1,4 +1,4 @@
-export const productos = [
+export const articulos = [
   {
     id: 1,
     titulo: 'Notebook HP 15.6" 256GB G6',
