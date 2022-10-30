@@ -7,7 +7,7 @@ function App() {
 
   useEffect(() => {
     const productos = JSON.parse(localStorage.getItem('carrito'));
-    if (productos.length > 0) {
+    if (productos && productos.length > 0) {
       modificarCarrito(productos);
     }
   }, []);

@@ -2,6 +2,7 @@ import { Modal, Button, Row, Col } from 'react-bootstrap';
 
 const Carrito = (props) => {
   const { carrito } = props;
+
   return (
     <>
       <Modal
@@ -18,6 +19,7 @@ const Carrito = (props) => {
           <Row xs={1} className="g-4">
             {carrito.map((producto) => (
               <Col key={producto.id}>
+                <h6>{producto.cantidad}</h6>
                 <img src={producto.imagen} alt={producto.titulo}></img>
                 <h6>{producto.titulo}</h6>
                 <h6>{producto.precio}</h6>

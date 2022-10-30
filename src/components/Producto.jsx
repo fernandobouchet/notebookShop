@@ -4,7 +4,21 @@ const Producto = ({ producto, carrito, modificarCarrito }) => {
   const { titulo, precio, imagen } = producto;
 
   const agregarProducto = (producto) => {
-    modificarCarrito((prevState) => [...prevState, producto]);
+    if (carrito.some((item) => item.id === producto.id))
+      modificarCarrito(
+        carrito.map((articulo) => {
+          if (articulo.id === producto.id)
+            return {
+              ...articulo,
+              cantidad: articulo.cantidad + 1,
+            };
+          return articulo;
+        })
+      );
+    else {
+      producto.cantidad = 1;
+      modificarCarrito((prevState) => [...prevState, producto]);
+    }
   };
 
   return (
@@ -14,7 +28,9 @@ const Producto = ({ producto, carrito, modificarCarrito }) => {
         <Card.Body>
           <Card.Title>{titulo}</Card.Title>
           <h6>${precio}</h6>
-          <Button onClick={() => agregarProducto(producto)}>Comprar</Button>
+          <Button onClick={() => agregarProducto(producto)}>
+            Agregar Al Carrito
+          </Button>
         </Card.Body>
       </Card>
     </Col>

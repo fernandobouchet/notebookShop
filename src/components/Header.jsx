@@ -1,11 +1,14 @@
 import { Button } from 'react-bootstrap';
 
 const Header = ({ carrito, modificarMostrarCarrito }) => {
+  const cantidadDeItems = (carrito) => {
+    return carrito.reduce((a, b) => a + b.cantidad, 0);
+  };
   return (
     <>
       <h1>Notebooks Store Arg</h1>
       <Button onClick={() => modificarMostrarCarrito(true)}></Button>
-      <h2>{carrito.length}</h2>
+      <h2>{cantidadDeItems(carrito)}</h2>
     </>
   );
 };
