@@ -13,13 +13,13 @@ const Home = ({
     <>
       <Header
         carrito={carrito}
-        modificarCarrito={modificarCarrito}
         modificarMostrarCarrito={modificarMostrarCarrito}
       />
       <Main carrito={carrito} modificarCarrito={modificarCarrito} />
       <Carrito
         carrito={carrito}
         show={mostrarCarrito}
+        modificarCarrito={modificarCarrito}
         onHide={() => modificarMostrarCarrito(false)}
       />
       <Footer />

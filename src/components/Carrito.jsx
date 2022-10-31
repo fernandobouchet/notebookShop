@@ -1,14 +1,17 @@
-import { Fragment } from 'react';
 import { Modal, Button, Row, Col } from 'react-bootstrap';
 
 const Carrito = (props) => {
-  const { carrito } = props;
+  const { carrito, modificarCarrito, ...others } = props;
+
+  const eliminarProducto = (producto) => {
+    modificarCarrito(carrito.filter((item) => item.id !== producto.id));
+  };
 
   return (
     <>
       <Modal
         id="modal"
-        {...props}
+        {...others}
         size="lg"
         aria-labelledby="contained-modal-title-vcenter"
         centered
@@ -41,11 +44,19 @@ const Carrito = (props) => {
                       alt={producto.titulo}
                     ></img>
                   </Col>
-                  <Col xs={7}>
+                  <Col xs={5}>
                     <h6>{producto.titulo}</h6>
                   </Col>
                   <Col xs={2}>
                     <h6>${producto.precio}</h6>
+                  </Col>
+                  <Col xs={2}>
+                    <button
+                      id="delete-button"
+                      onClick={() => eliminarProducto(producto)}
+                    >
+                      <img src="../assets/icons/trash.svg" alt="" />
+                    </button>
                   </Col>
                 </Row>
               ))}

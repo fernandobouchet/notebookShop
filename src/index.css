@@ -104,3 +104,12 @@ h1 {
   padding: 0;
   margin: auto;
 }
+
+#delete-button {
+  border: none;
+  background-color: inherit;
+}
+
+h6 {
+  margin: auto;
+}
