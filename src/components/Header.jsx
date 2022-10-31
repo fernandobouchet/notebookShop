@@ -6,13 +6,13 @@ const Header = ({ carrito, modificarMostrarCarrito }) => {
   };
 
   return (
-    <>
+    <header>
       <h1>Notebooks Store Arg</h1>
-      <Button onClick={() => modificarMostrarCarrito(true)}>
-        <img src="../assets/icons/shopping-cart.svg" alt="" />
+      <Button variant="dark" onClick={() => modificarMostrarCarrito(true)}>
+        <img src="../assets/icons/shopping-cart.svg" alt="icono carrito" />
         <Badge bg="secondary">{cantidadDeItems(carrito)}</Badge>
       </Button>
-    </>
+    </header>
   );
 };
 

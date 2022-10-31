@@ -4,11 +4,11 @@ const ToastCompra = ({ show, setShow }) => {
   return (
     <>
       <Toast
+        id="toast"
         onClose={() => setShow(false)}
         show={show}
-        delay={3000}
+        delay={2000}
         autohide
-        style={{ position: 'absolute', top: '80%', left: '35%', zIndex: '1' }}
       >
         <Toast.Body>Producto agregado al carrito!</Toast.Body>
       </Toast>

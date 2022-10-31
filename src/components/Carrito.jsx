@@ -7,6 +7,7 @@ const Carrito = (props) => {
   return (
     <>
       <Modal
+        id="modal"
         {...props}
         size="lg"
         aria-labelledby="contained-modal-title-vcenter"
@@ -16,33 +17,43 @@ const Carrito = (props) => {
           <Modal.Title id="contained-modal-title-vcenter">Carrito</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Row>
-            <Col xs={1}>Cant.</Col>
-            <Col xs={11}>Producto</Col>
-          </Row>
-          {carrito.map((producto) => (
-            <Row key={producto.id}>
-              <Col xs={1}>
-                <h6>{producto.cantidad}</h6>
-              </Col>
-              <Col xs={2}>
-                <img
-                  width="50px"
-                  src={producto.imagen}
-                  alt={producto.titulo}
-                ></img>
-              </Col>
-              <Col xs={7}>
-                <h6>{producto.titulo}</h6>
-              </Col>
-              <Col xs={2}>
-                <h6>{producto.precio}</h6>
-              </Col>
-            </Row>
-          ))}
+          {carrito.length === 0 ? (
+            <>
+              <p className="text-center">
+                Aún no agregaste producto al carrito!
+              </p>
+            </>
+          ) : (
+            <>
+              <Row className="text-center">
+                <Col xs={1}>Cant.</Col>
+                <Col xs={11}>Producto</Col>
+              </Row>
+              {carrito.map((producto) => (
+                <Row className="text-center" key={producto.id}>
+                  <Col xs={1}>
+                    <h6>{producto.cantidad}</h6>
+                  </Col>
+                  <Col xs={2}>
+                    <img
+                      width="50px"
+                      src={producto.imagen}
+                      alt={producto.titulo}
+                    ></img>
+                  </Col>
+                  <Col xs={7}>
+                    <h6>{producto.titulo}</h6>
+                  </Col>
+                  <Col xs={2}>
+                    <h6>${producto.precio}</h6>
+                  </Col>
+                </Row>
+              ))}
+            </>
+          )}
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={props.onHide}>Close</Button>
+          <Button onClick={props.onHide}>Salir</Button>
         </Modal.Footer>
       </Modal>
     </>

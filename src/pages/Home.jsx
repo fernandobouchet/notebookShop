@@ -1,4 +1,3 @@
-import { Container } from 'react-bootstrap';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Main from '../components/Main';
@@ -11,7 +10,7 @@ const Home = ({
   modificarMostrarCarrito,
 }) => {
   return (
-    <Container>
+    <>
       <Header
         carrito={carrito}
         modificarCarrito={modificarCarrito}
@@ -24,7 +23,7 @@ const Home = ({
         onHide={() => modificarMostrarCarrito(false)}
       />
       <Footer />
-    </Container>
+    </>
   );
 };
 

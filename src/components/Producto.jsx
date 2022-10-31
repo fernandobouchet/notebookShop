@@ -33,7 +33,7 @@ const Producto = ({ producto, carrito, modificarCarrito }) => {
           <Card.Img variant="top" src={imagen} alt={titulo} />
           <Card.Body>
             <Card.Title>{titulo}</Card.Title>
-            <h6>${precio}</h6>
+            <h5>${precio}</h5>
             <Button onClick={() => agregarProducto(producto)}>
               Agregar Al Carrito
             </Button>
