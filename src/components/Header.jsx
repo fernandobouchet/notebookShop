@@ -1,7 +1,7 @@
 import { Button, Badge } from 'react-bootstrap';
 
 const Header = ({ carrito, modificarMostrarCarrito }) => {
-  const cantidadDeItems = (carrito) => {
+  const cantidadDeItems = () => {
     return carrito.reduce((a, b) => a + b.cantidad, 0);
   };
 
@@ -10,7 +10,7 @@ const Header = ({ carrito, modificarMostrarCarrito }) => {
       <h1>Notebooks Store Arg</h1>
       <Button variant="dark" onClick={() => modificarMostrarCarrito(true)}>
         <img src="../assets/icons/shopping-cart.svg" alt="icono carrito" />
-        <Badge bg="secondary">{cantidadDeItems(carrito)}</Badge>
+        <Badge bg="secondary">{cantidadDeItems()}</Badge>
       </Button>
     </header>
   );

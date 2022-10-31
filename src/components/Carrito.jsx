@@ -7,6 +7,16 @@ const Carrito = (props) => {
     modificarCarrito(carrito.filter((item) => item.id !== producto.id));
   };
 
+  const totalPreciosCarrito = () => {
+    return carrito
+      .reduce((a, b) => a + parseFloat(b.precio) * parseFloat(b.cantidad), 0)
+      .toFixed(3);
+  };
+
+  const eliminarTodosLosProductos = () => {
+    modificarCarrito([]);
+  };
+
   return (
     <>
       <Modal
@@ -60,11 +70,26 @@ const Carrito = (props) => {
                   </Col>
                 </Row>
               ))}
+              <Row id="total" className="text-center">
+                <Col xs={6}>Total</Col>
+                <Col xs={6}>${totalPreciosCarrito()}</Col>
+              </Row>
             </>
           )}
         </Modal.Body>
         <Modal.Footer>
           <Button onClick={props.onHide}>Salir</Button>
+          {carrito.length > 0 && (
+            <Button
+              variant="success"
+              onClick={() => {
+                eliminarTodosLosProductos();
+                props.onHide();
+              }}
+            >
+              Comprar
+            </Button>
+          )}
         </Modal.Footer>
       </Modal>
     </>
